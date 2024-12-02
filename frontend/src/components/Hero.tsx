@@ -86,7 +86,7 @@ const Hero = () => {
           <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"></path>
           <circle cx="12" cy="10" r="3"></circle>
         </svg>
-        <span>based in Mar del Plata, Argentina</span>
+        <span>Mar del Plata, Argentina</span>
       </motion.div>
       </Subtitle>
       <TechStack />

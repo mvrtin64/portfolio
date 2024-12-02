@@ -21,7 +21,7 @@ function App() {
     <Container>
       <Navbar />
       
-      <Section id="home">
+      <Section id="contact">
         <Hero />
       </Section>
 

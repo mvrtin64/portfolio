@@ -23,6 +23,7 @@ const Socials = () => {
     { name: 'github', url: 'https://github.com/mvrtin64' },
     { name: 'linkedin', url: 'https://linkedin.com/in/martint64' },
     { name: 'email', url: 'mailto:mvrtingrzsk@gmail.com' },
+    { name: 'resume', url: '../../public/CV_FINAL_MTN.pdf' },
   ];
 
   return (
