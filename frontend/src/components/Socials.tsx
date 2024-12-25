@@ -22,8 +22,12 @@ const Socials = () => {
   const socials = [
     { name: 'github', url: 'https://github.com/mvrtin64' },
     { name: 'linkedin', url: 'https://linkedin.com/in/martint64' },
-    { name: 'email', url: 'mailto:mvrtingrzsk@gmail.com' },
-    { name: 'resume', url: '../../public/CV_FINAL_MTN.pdf' },
+    { name: 'email', onClick: () => {
+        navigator.clipboard.writeText('mvrtingrzsk@gmail.com');
+        alert('Email copied to clipboard!');
+      }
+    },
+    { name: 'resume', url: '../../public/cv_martin.pdf' },
   ];
 
   return (
@@ -32,8 +36,9 @@ const Socials = () => {
         <SocialLink
           key={social.name}
           href={social.url}
-          target="_blank"
+          target={social.url ? "_blank" : undefined}
           rel="noopener noreferrer"
+          onClick={social.onClick}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: index * 0.1 + 0.8 }}

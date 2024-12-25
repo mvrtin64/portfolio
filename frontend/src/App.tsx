@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Projects from './components/Projects';
+import Education from './components/Education';
 const Container = styled.div`
   background-color: #000;
   color: #fff;
@@ -27,6 +29,14 @@ function App() {
 
       <Section id="about">
         <About />
+      </Section>
+
+      <Section id="projects">
+        <Projects />
+      </Section>
+      
+      <Section id="education">
+        <Education />
       </Section>
     </Container>
   );
