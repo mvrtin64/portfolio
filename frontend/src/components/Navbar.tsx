@@ -61,14 +61,14 @@ const Navbar = () => {
           projects
         </Link>
         <Link
-          to="education"
+          to="?"
           smooth={true}
           duration={500}
           offset={-70}
           spy={true}
           activeClass="active"
         >
-          education
+          ?
         </Link>
 
         <Link

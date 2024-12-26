@@ -3,7 +3,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
-import Education from './components/Education';
+import Terminal from './components/Terminal';
+
 const Container = styled.div`
   background-color: #000;
   color: #fff;
@@ -34,10 +35,11 @@ function App() {
       <Section id="projects">
         <Projects />
       </Section>
-      
-      <Section id="education">
-        <Education />
+
+      <Section id="?">
+        <Terminal />
       </Section>
+      
     </Container>
   );
 }

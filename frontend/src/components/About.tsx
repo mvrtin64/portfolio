@@ -65,7 +65,7 @@ const About = () => {
   return (
     <AboutContainer>
       <PhotoContainer>
-        <Photo src="../public/marto.jpeg" alt="me" />
+        <Photo src="marto.jpeg" alt="me" />
       </PhotoContainer>
       <Content>
         <Title
