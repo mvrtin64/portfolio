@@ -61,14 +61,14 @@ const Navbar = () => {
           projects
         </Link>
         <Link
-          to="?"
+          to="terminal"
           smooth={true}
           duration={500}
           offset={-70}
           spy={true}
           activeClass="active"
         >
-          ?
+          terminal
         </Link>
 
         <Link

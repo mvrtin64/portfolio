@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
 import Terminal from './components/Terminal';
+import { useEffect } from 'react';
 
 const Container = styled.div`
   background-color: #000;
@@ -20,6 +21,13 @@ const Section = styled.section`
 `;
 
 function App() {
+  useEffect(() => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+
   return (
     <Container>
       <Navbar />
@@ -36,7 +44,7 @@ function App() {
         <Projects />
       </Section>
 
-      <Section id="?">
+      <Section id="terminal">
         <Terminal />
       </Section>
       

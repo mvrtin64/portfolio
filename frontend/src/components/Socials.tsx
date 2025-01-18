@@ -27,7 +27,7 @@ const Socials = () => {
         alert('Email copied to clipboard!');
       }
     },
-    { name: 'resume', url: '../../public/cv_martin.pdf' },
+    { name: 'resume', url: 'cv_martin.pdf' },
   ];
 
   return (

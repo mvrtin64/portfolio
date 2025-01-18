@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import axios from 'axios';
 
@@ -58,10 +58,6 @@ const TerminalPrompt = styled.div`
   align-items: center;
   color: #50fa7b;
   
-  &:before {
-    content: '[user@portfolio ~]$ ';
-    color: #50fa7b;
-  }
 `;
 
 const TerminalInput = styled.input`
@@ -82,19 +78,31 @@ const TerminalInput = styled.input`
 const Terminal = () => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState<string[]>(['Welcome to portfolio terminal', 'Type "/help" for available commands.']);
+  const [currentPath, setCurrentPath] = useState('/');
+  const outputRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (outputRef.current) {
+      outputRef.current.scrollTop = outputRef.current.scrollHeight;
+    }
+  }, [output]);
 
   const handleCommand = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
 
+    setOutput(prev => [...prev, `[user@portfolio ${currentPath}]$ ${input}`]);
+
     try {
       const res = await axios.post('http://localhost:5000/api/terminal', {
         command: input
       });
-      setOutput(prev => [...prev, `[user@portfolio ~]$ ${input}`, res.data.output]);
+      
+      setOutput(prev => [...prev, res.data.output]);
+      setCurrentPath(res.data.currentPath);
     } catch (err) {
       console.error('Error connecting to backend:', err);
-      setOutput(prev => [...prev, `[user@portfolio ~]$ ${input}`, 'Error: Could not connect to server']);
+      setOutput(prev => [...prev, 'Error: Could not connect to server']);
     }
 
     setInput('');
@@ -105,13 +113,14 @@ const Terminal = () => {
       <TerminalHeader>
         <span>terminal - portfolio@github.io:~</span>
       </TerminalHeader>
-      <TerminalOutput>
+      <TerminalOutput ref={outputRef}>
         {output.map((line, index) => (
           <div key={index}>{line}</div>
         ))}
       </TerminalOutput>
       <form onSubmit={handleCommand}>
         <TerminalPrompt>
+          <span>[user@portfolio {currentPath}]$ </span>
           <TerminalInput
             type="text"
             value={input}

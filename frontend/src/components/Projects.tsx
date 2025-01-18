@@ -93,6 +93,13 @@ const projects = [
     live: '#', 
     thumbnail: 'portfolio.png'
   },
+    {
+    title: 'Interactive Sushi Ordering Chatbot',
+    description: 'An AI-powered web application for ordering sushi, featuring a chatbot built with Voiceflow, React, Node.js, and MongoDB. It supports fuzzy matching, dynamic order validation, and a seamless user experience.',
+    tech: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Jest', 'Express'],
+    github: 'https://github.com/mvrtin64/sushi_chatbot',
+    thumbnail: 'sushi_chatbot.png'
+  },
   {
     title: 'Rock, Paper, Scissors 2D Web Game',
     description: 'A 2D multiplayer Rock, Paper, Scissors game built with Node.js and Socket.IO for real-time communication. Designed with an MVC architecture and modern web technologies to deliver an interactive and responsive gaming experience.',
