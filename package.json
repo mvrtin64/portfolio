@@ -2,10 +2,11 @@
   "name": "portfolio",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "https://yourusername.github.io/repo-name",
   "scripts": {
     "start": "concurrently \"npm run start --prefix backend\" \"npm run dev --prefix frontend\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "cd frontend && npm run build",
+    "deploy": "gh-pages -d frontend/dist"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "express": "^4.21.1"
   },
   "devDependencies": {
-    "concurrently": "^9.1.0"
+    "concurrently": "^9.1.0",
+    "gh-pages": "^6.3.0"
   }
 }

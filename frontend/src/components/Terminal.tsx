@@ -57,7 +57,6 @@ const TerminalPrompt = styled.div`
   display: flex;
   align-items: center;
   color: #50fa7b;
-  
 `;
 
 const TerminalInput = styled.input`
