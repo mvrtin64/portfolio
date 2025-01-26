@@ -2,6 +2,9 @@ import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
 import TechStack from './TechStack';
 import Socials from './Socials';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations';
+
 
 const HeroSection = styled.section`
   text-align: center;
@@ -49,6 +52,9 @@ const Subtitle = styled(motion.p)`
 `;
 
 const Hero = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <HeroSection>
       <Title
@@ -56,15 +62,15 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        hey, i'm <span>martín</span>.
+        {t.hero.intro} <span>martín</span>.
       </Title>
       <Subtitle
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        systems analyst & full-stack developer.
-
+        {t.hero.role}
+      </Subtitle>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -86,9 +92,8 @@ const Hero = () => {
           <path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 1 1 18 0z"></path>
           <circle cx="12" cy="10" r="3"></circle>
         </svg>
-        <span>Mar del Plata, Argentina</span>
+        <span>{t.hero.location}</span>
       </motion.div>
-      </Subtitle>
       <TechStack />
       <Socials />
     </HeroSection>

@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations';
 
 const AboutContainer = styled.div`
   display: flex;
@@ -62,6 +64,9 @@ const HighlightText = styled.span`
 `;
 
 const About = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <AboutContainer>
       <PhotoContainer>
@@ -74,7 +79,7 @@ const About = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          about me :]
+          {t.about.title}
         </Title>
         
         <Paragraph
@@ -83,8 +88,7 @@ const About = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          Hey there! I'm a <HighlightText>full-stack developer</HighlightText> with 
-          a strong focus on backend development. Currently, I'm expanding my knowledge towards frontend development and software engineering. I have a bachelor's degree as a systems analyst, finished in 2024.
+          {t.about.p1}
         </Paragraph>
 
         <Paragraph
@@ -93,8 +97,7 @@ const About = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          I'm looking for my first opportunity in this awesome industry.
-          My main focus these days is <HighlightText>full stack development</HighlightText>, although I can learn and adapt easily to anything.
+          {t.about.p2}
         </Paragraph>
 
         <Paragraph

@@ -5,6 +5,7 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Terminal from './components/Terminal';
 import { useEffect } from 'react';
+import { LanguageProvider } from './context/LanguageContext';
 
 const Container = styled.div`
   background-color: #000;
@@ -29,26 +30,28 @@ function App() {
   }, []);
 
   return (
-    <Container>
-      <Navbar />
-      
-      <Section id="contact">
-        <Hero />
-      </Section>
+    <LanguageProvider>
+      <Container>
+        <Navbar />
+        
+        <Section id="contact">
+          <Hero />
+        </Section>
 
-      <Section id="about">
-        <About />
-      </Section>
+        <Section id="about">
+          <About />
+        </Section>
 
-      <Section id="projects">
-        <Projects />
-      </Section>
+        <Section id="projects">
+          <Projects />
+        </Section>
 
-      <Section id="terminal">
-        <Terminal />
-      </Section>
-      
-    </Container>
+        <Section id="terminal">
+          <Terminal />
+        </Section>
+        
+      </Container>
+    </LanguageProvider>
   );
 }
 
