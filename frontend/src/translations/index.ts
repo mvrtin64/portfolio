@@ -1,12 +1,12 @@
 // Define or update the project type to include the 'github' property
-interface Project {
-  title: string;
-  description: string;
-  github: string;
-  live?: string;
-  tech: string[];
-  thumbnail: string;
-}
+// interface Project {
+//   title: string;
+//   description: string;
+//   github: string;
+//   live?: string;
+//   tech: string[];
+//   thumbnail: string;
+// }
 
 export const translations = {
   en: {
